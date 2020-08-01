@@ -1,6 +1,5 @@
 import Koa from 'koa';
-import Router from '@koa/router';
-import { RouterContext } from 'koa-router';
+import Router, { RouterContext } from 'koa-router';
 import { BotFrameworkAdapter, TurnContext } from 'botbuilder';
 import { Bot } from './bot';
 
