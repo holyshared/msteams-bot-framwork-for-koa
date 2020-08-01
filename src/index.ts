@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import Router, { RouterContext } from 'koa-router';
-import { BotFrameworkAdapter, TurnContext } from 'botbuilder';
+import { BotFrameworkAdapter, TurnContext, WebResponse } from 'botbuilder';
 import { Bot } from './bot';
 
 const app = new Koa();
@@ -13,7 +13,7 @@ const adaptor = new BotFrameworkAdapter({
 
 const bot = new Bot();
 
-const createExpressLikeResponse = (ctx: RouterContext<{}, {}>) => ({
+const createExpressLikeResponse = (ctx: RouterContext<{}, {}>): WebResponse => ({
   status(code: number): void {
     ctx.status = code;
   },
