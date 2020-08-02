@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+
+  # https://hub.docker.com/_/mongo
+  mongodb:
+    image: mongo:4.2
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: bot
+    volumes:
+      - /tmp/mongo/data:/data/db
+      - ./docker/mongo/init/:/docker-entrypoint-initdb.d/
+    ports:
+      - 127.0.0.1:27017:27017

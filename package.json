@@ -1,16 +1,19 @@
 {
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/welcome.js",
+    "start:cached": "node dist/cached-bot.js",
     "build": "tsc"
   },
   "dependencies": {
     "botbuilder": "^4.9.3",
     "koa": "^2.13.0",
-    "koa-router": "^9.1.0"
+    "koa-router": "^9.1.0",
+    "mongodb": "^3.6.0"
   },
   "devDependencies": {
     "@types/koa": "^2.11.3",
     "@types/koa-router": "^7.4.1",
+    "@types/mongodb": "^3.5.25",
     "typescript": "^3.9.7"
   }
 }
