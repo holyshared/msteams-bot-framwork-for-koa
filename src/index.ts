@@ -13,7 +13,7 @@ const adaptor = new BotFrameworkAdapter({
 
 const bot = new Bot();
 
-const createExpressLikeResponse = (ctx: RouterContext<{}, {}>): WebResponse => ({
+const createWebResponse = (ctx: RouterContext<{}, {}>): WebResponse => ({
   status(code: number): void {
     ctx.status = code;
   },
@@ -25,10 +25,8 @@ const createExpressLikeResponse = (ctx: RouterContext<{}, {}>): WebResponse => (
 });
 
 router.post('/api/messages', async (ctx: RouterContext<{}, {}>) => {
-  const { request: req } = ctx;
-  const res = createExpressLikeResponse(ctx);
-
-  await adaptor.processActivity(req, res, async (turnContext: TurnContext): Promise<void> => {
+  const res = createWebResponse(ctx);
+  await adaptor.processActivity(ctx.req, res, async (turnContext: TurnContext): Promise<void> => {
     await bot.run(turnContext);
   });
 });

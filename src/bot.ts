@@ -3,8 +3,8 @@ import { TeamsActivityHandler, TurnContext, MessageFactory, ChannelAccount } fro
 export class Bot extends TeamsActivityHandler {
   constructor() {
     super();
-    this.onConversationUpdate(this._handleConversationUpdate);
-    this.onMembersAdded(this._handleMembersAdded);
+    this.onConversationUpdate((context: TurnContext, next: () => Promise<void>) => this._handleConversationUpdate(context, next));
+    this.onMembersAdded((context: TurnContext, next: () => Promise<void>) => this._handleMembersAdded(context, next));
   }
 
   async _handleConversationUpdate(_context: TurnContext, next: () => Promise<void>): Promise<void> {
