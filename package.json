@@ -2,10 +2,12 @@
   "scripts": {
     "start": "node dist/welcome.js",
     "start:cached": "node dist/cached-bot.js",
+    "start:dialog": "node dist/dialog-bot.js",
     "build": "tsc"
   },
   "dependencies": {
     "botbuilder": "^4.9.3",
+    "botbuilder-dialogs": "^4.9.3",
     "koa": "^2.13.0",
     "koa-router": "^9.1.0",
     "mongodb": "^3.6.0"
